@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+    <title>Forge Deck ♨</title>
+    <link rel="stylesheet" href="lib/style.css">
+
+    <meta name="author" content="od3zza" />
+    <meta name="description"
+        content=" ." />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Theme Color - https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-38DKSWP03D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-38DKSWP03D');
+    </script>
+
+    <!-- SSL Protocol Config -->
+    <script>
+        if (location.protocol != "https:") {
+            location.href =
+                "https:" +
+                window.location.href.substring(window.location.protocol.length)
+        }
+    </script>
+    <meta name="p:domain_verify" content="fd7d215910ea0cf1c785c7c7cf7a7c0f" />
+    <!-- End SSL Protocol Config -->
+</head>
+
+<!--
+          )      (\_
+         ((    _/{  "-;
+          )).-' {{ ;'`
+HEY U!   ( (  ;._ \\      -->
+
+<body>
+    <main>
+        <p style="text-align:'center';"><a href="https://forgedeck.vercel.app/">EN</a> | <a
+                href="https://forgedeck-vercel-app.translate.goog/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt-BR&_x_tr_pto=wapp">PT</a>
+        </p>
+
+        <img src="/assets/forgedeck_w.png" class="logo">
+
+        <p>Drop the list of cards in your collection and discover decks you can build!</p>
+
+        <textarea id="card-list-input"
+            placeholder="Paste your list of cards in the format “Quantity Card Name” (one per line)&#10;4 Dirtwater Wraith&#10;4 Stone Rain&#10;1 Dark Privilege&#10;1 Dormant Volcano&#10;1 Vanishing&#10;4 Razortooth Rats&#10;4 Striped Bears&#10;2 Empyrial Armor&#10;1 Strands of Night&#10;3 Odylic Wraith&#10;1 Familiar Ground&#10;1 Manakin&#10;"
+            rows="15"></textarea>
+
+        <label for="format-select">Format:</label>
+        <select id="format-select">
+            <option value="pauper">Pauper</option>
+            <option value="commander">Commander</option>
+            <option value="standard">Standard</option>
+            <option value="modern">Modern</option>
+            <option value="legacy">Legacy</option>
+            <option value="pioneer">Pioneer</option>
+            <option value="vintage">Vintage</option>
+            <option value="historic">Historic</option>
+            <option value="alchemy">Alchemy</option>
+            <option value="brawl">Brawl</option>
+            <option value="gladiator">Gladiator</option>
+        </select>
+
+        <button id="search-button">Find decks</button>
+        <div id="status"></div>
+
+        <div class="notes">
+            <p><strong>🤓 Dev Notes:</strong> ForgeDeck is an experimental project under development that allows you to
+                paste your Magic the Gathering card
+                collection and find possible decks to build and play. The database is still under construction. For now,
+                only the search for Pauper decks is working, <a href="https://ko-fi.com/od3zza">but you can follow
+                    updates on the blog</a>. You can also check the dev log at the bottom of this page.</p>
+        </div>
+
+        <div id="results-container" class="results-container hidden">
+            <section>
+                <h2>✅ Full decks (100%)</h2>
+                <div id="results-100"></div>
+            </section>
+            <section>
+                <h2>⚠️ Almost (70%+)</h2>
+                <div id="results-70"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="lib/script.js"></script>
+
+ <!--  <footer>
+        <div id="donation-popup" class="popup-hidden">
+            <button id="close-popup-btn" title="Fechar">&times;</button>
+
+            <h3>Support ForgeDeck!</h3>
+            <p>
+                This project is maintained by an independent dev. Your donation helps cover server costs
+                and encourages me to continue adding new decks and features. Please consider supporting us!
+            </p>
+
+            <div class="progress-info">
+                <span><strong>First Run Goal: $200</strong></span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+
+            <a href="https://ko-fi.com/od3zza" class="donate-button" target="_blank" rel="noopener noreferrer">Back it!</a>
+        </div>
+
+        <p style="font-size: 12px;">Coded and feed by od3zza 👾</p>
+    </footer> --> 
+</body>
+
+</html>

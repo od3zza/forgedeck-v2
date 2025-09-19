@@ -1,0 +1,590 @@
+/* --- Variáveis de Cor (Tema Preto e Branco Minimalista / Moderno) --- */
+:root {
+    --bg-dark: #121110;           /* fundo quase preto, quente */
+    --bg-medium: #1a1817;         /* painéis */
+    --bg-light: #23201f;          /* inputs/cards */
+    --text-light: #f2f0ed;        /* branco puxado pro bege */
+    --text-medium: #a8a29e;       /* cinza quente */
+    --accent-color: #d4a373;      /* dourado suave (destaque) */
+    --accent-hover: #c38b59;      /* hover dourado mais profundo */
+    --border-color: #2e2b29;      /* bordas sutis */
+    --shadow-color: rgba(0, 0, 0, 0.35); /* sombra discreta */
+    --success-color: #7fb77e;     /* verde oliva suave */
+    --error-color: #e27d60;       /* vermelho queimado */
+    --overlay-color: rgba(18, 17, 16, 0.7); /* overlay quente */
+    --header-bg: #1f1c1b;         /* cabeçalhos dos decks */
+    --header-hover: #272423;      /* hover */
+    --card-list-bg: #1b1918;      /* fundo das listas */
+    --deck-hover-bg: #2b2826;     /* hover dos cards */
+    --muted-btn-bg: #3a3532;      /* botão secundário */
+    --muted-btn-hover: #47423f;   /* hover do botão secundário */
+    --warning-color: #e9b44c;     /* dourado quente para alertas */
+}
+
+/* --- Estilos Gerais --- */
+body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+main {
+    background-color: var(--bg-medium);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color); /* Adiciona uma borda sutil */
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+h1 {
+    color: var(--text-light); /* Título principal em branco */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+p {
+    color: var(--text-medium);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--text-medium);
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+img {
+  display: block;      
+  margin: 0 auto;      
+  padding-bottom: 1em;
+}
+
+.logo {
+  width: 80%;
+  max-width: 180px; /* tamanho máximo no desktop */
+  height: auto;
+}
+
+.notes, p, a {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Formulário e Inputs --- */
+textarea, select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-family: monospace;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color); /* Borda de destaque ao focar */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-medium);
+}
+
+button {
+    width: 80%;
+    padding: 14px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 10px auto; /* centraliza horizontalmente */
+    background-color: var(--text-light); /* Fundo de destaque */
+    color: var(--bg-dark); /* Texto escuro */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: block; /* garante que margin auto funcione */
+}
+
+button:hover {
+    background-color: var(--text-medium); /* hover suave no destaque */
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* --- Status e Resultados --- */
+#status {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1em;
+    color: var(--text-medium);
+}
+
+.hidden {
+    display: none;
+}
+
+.results-container {
+    margin-top: 2.5rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    border-bottom: 2px solid var(--text-light); /* Borda suave */
+    padding-bottom: 8px;
+    margin-bottom: 1.5rem;
+    color: var(--text-light); /* Título claro */
+    font-size: 1em;
+}
+
+.deck {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: var(--bg-light);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.deck:hover {
+    border-color: var(--accent-color); /* Borda de destaque no hover */
+    background-color: var(--deck-hover-bg);
+}
+
+.deck-name a {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.deck-name a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+.deck-percentage, .missing-info {
+    font-style: italic;
+    color: var(--text-medium);
+    font-size: 0.95em;
+    margin-top: 8px;
+}
+
+.show-missing-btn {
+    background-color: var(--muted-btn-bg); /* Botão secundário */
+    color: var(--text-light);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.show-missing-btn:hover {
+    background-color: var(--muted-btn-hover);
+    transform: translateY(-1px);
+}
+
+/* --- Popup de Cartas Faltantes --- */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: var(--bg-medium);
+    color: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    max-width: 550px;
+    width: 90%;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.popup-content h3 {
+    color: var(--text-light); /* Título claro */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-medium);
+    transition: color 0.2s;
+}
+
+.close-popup:hover {
+    color: var(--text-light);
+}
+
+#popup-missing-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#popup-missing-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 1em;
+}
+
+#popup-missing-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- Responsividade (Ajustes para telas menores) --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    main {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    button, textarea, select {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    .popup-content {
+        padding: 20px;
+    }
+    .close-popup {
+        font-size: 28px;
+        top: 10px;
+        right: 15px;
+    }
+}
+
+/* =============================================== */
+/* Estilos para a Seção de Resultados dos Decks    */
+/* =============================================== */
+
+/* Container geral para um único resultado de deck */
+.deck {
+    border: 0px solid var(--border-color); /* Borda sutil para separar os decks */
+    border-radius: 6px;     /* Cantos arredondados */
+    margin-bottom: 5px;    /* Espaço entre os decks */
+    overflow: hidden;       /* Garante que o conteúdo respeite os cantos arredondados */
+}
+
+/* Cabeçalho clicável do deck (contém nome e porcentagem) */
+.deck-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 15px;
+    background-color: var(--header-bg); /* cabeçalho escuro e discreto */
+    border-bottom: 0px solid var(--border-color);
+    border-radius: 6px 6px 0 0;
+    transition: background-color 0.2s ease-in-out; /* Transição suave para o hover */
+}
+
+/* Efeito de hover para dar feedback ao usuário que é clicável */
+.deck-header:hover {
+    background-color: var(--header-hover);
+}
+
+/* Estilos para o nome e porcentagem dentro do cabeçalho */
+.deck-name {
+    font-weight: bold;
+    color: var(--text-light); /* texto claro para contraste */
+}
+
+.deck-percentage {
+    font-size: 0.9em;
+    color: var(--text-medium);
+    font-weight: bold;
+}
+
+/* A lista de cartas que aparece/desaparece (o dropdown) */
+.deck-card-list {
+    padding: 10px;
+    background-color: var(--card-list-bg); /* fundo escuro consistente */
+    border-top: 1px solid var(--border-color);  /* linha sutil no topo */
+}
+
+/* Ajustes na lista de cartas (ul) para melhor aparência */
+.deck-card-list ul {
+    margin: 0;
+    padding-left: 10px; /* Alinha a lista com um pouco de recuo */
+    list-style-type: none; /* Estilo de marcador padrão */
+}
+
+/* Itens da lista de cartas (li) */
+.deck-card-list li {
+    color: var(--text-light); /* texto claro legível no fundo escuro */
+    padding: 2px 0; /* Espaçamento vertical entre as cartas */
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.deck-card-list li:hover {
+    font-weight: bold;
+}
+
+/* Classe utilitária para esconder/mostrar o dropdown (já usada no seu JS) */
+.hidden {
+    display: none;
+}
+
+/* Estilo para destacar as cartas que faltam na lista */
+.missing-card {
+    color: var(--error-color); /* vermelho moderno */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* (Opcional) Adiciona um ícone de aviso antes da carta */
+.missing-card::before {
+    content: "⚠️ ";
+    color: var(--warning-color); /* laranja suave para o ícone */
+    font-weight: normal;
+} 
+
+/* Estilos para o container de "carregando" */
+.loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaço entre o spinner e o texto */
+    margin-top: 20px;
+}
+
+.loading-indicator span {
+    font-size: 1.1em;
+    color: var(--text-medium);
+}
+
+/* Ajuste no loader para remover a margem antiga */
+.loader {
+    margin: 0; /* Remove a margem que o centralizava sozinho */
+}
+
+/* Estilos para a área de ações e botão de copiar dentro do deck */
+.deck-actions {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Estilos para a área de ações e o ícone de copiar dentro do deck */
+.deck-actions {
+    display: flex; /* Para alinhar o ícone e o texto de feedback */
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e a mensagem */
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 0px solid var(--border-color);
+}
+
+.copy-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-medium); /* Cor padrão do ícone */
+    cursor: pointer;
+    transition: fill 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.copy-icon:hover {
+    fill: var(--text-light); /* Cor ao passar o mouse */
+    transform: scale(1.1);
+}
+
+.copy-feedback-message {
+    font-size: 0.9em;
+    color: var(--success-color); /* Cor verde para "Copiado!" */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease-in-out;
+}
+/* Você pode adicionar uma cor de erro se quiser: */
+/* .copy-feedback-message.error { color: var(--error-color); } */
+
+/* Estilo para o tooltip de preview da carta */
+.card-preview-tooltip {
+  position: fixed;
+  z-index: 1000;
+  width: 300px;
+  border-radius: 6px;
+  overflow: hidden;          /* corta certinho no raio */
+  box-shadow: 0 4px 15px var(--shadow-color);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  display: inline-block;
+  line-height: 0;            /* evita qualquer espaço extra de linha */
+}
+
+.card-preview-tooltip img {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;                /* ← remove o vão */
+  margin: 0;                 /* evita centragem com margem */
+  border-radius: inherit;    /* acompanha o contêiner */
+}
+
+.card-preview-tooltip img {
+    display: block;
+    width: 100%;
+    border-radius: 0px;
+}
+
+/* /lib/style.css */
+
+/* ===================================== */
+/* Estilos para o Pop-up de Doação       */
+/* ===================================== */
+
+#donation-popup {
+    position: fixed; /* Fixo na tela */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background-color: var(--bg-medium);
+    border-top: 2px solid var(--border-color);
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+    padding: 20px 30px;
+    z-index: 1000; /* Garante que fique por cima de tudo */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+    /* Animação de entrada/saída */
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Estado escondido do pop-up */
+#donation-popup.popup-hidden {
+    transform: translateY(100%); /* Desliza para baixo */
+    opacity: 0;
+    pointer-events: none; /* Impede cliques quando escondido */
+}
+
+#close-popup-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--text-medium);
+    font-size: 2.5em;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    width: auto; /* Sobrescreve o estilo do botão principal */
+}
+
+#donation-popup h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: none;
+}
+
+#donation-popup p {
+    font-size: 0.9em;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    color: var(--text-medium);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: var(--bg-dark);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#progress-bar-fill {
+    height: 100%;
+    background-color: var(--success-color);
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
+}
+
+.donate-button {
+    display: inline-block;
+    width: auto;
+    padding: 10px 30px;
+    text-decoration: none;
+    margin: 0 auto;
+    /* Reutiliza o estilo do botão principal */
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.donate-button:hover {
+    background-color: var(--text-medium);
+    transform: translateY(-2px);
+}

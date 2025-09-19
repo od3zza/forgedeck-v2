@@ -1,0 +1,17 @@
+{
+  "name": "forgedeck-checker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:enrich": "node build.js",
+    "build:compile": "node db/scripts/compilar_dados.js",
+    "build:merge": "node db/scripts/merge_json.js",
+    "build": "npm run build:enrich && npm run build:compile && npm run build:merge",
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "dotenv": "^17.2.2"
+  }
+}
